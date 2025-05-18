@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@streamerbot/client": "^1.9.5"
+  }
+}
