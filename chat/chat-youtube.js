@@ -1,3 +1,4 @@
+import { replaceEmoji } from "./utility/replace-emoji.js";
 /**
  * Extracts and organizes all relevant data from YouTube message
  */
@@ -18,24 +19,33 @@ function extractYouTubeMessageData(data) {
     id: data.data.broadcast.id,
   };
 
+  // Parse message parts
+  const parts = data.data.parts.map((part) => {
+    if (part.emoji) {
+      return { type: "emote", imageUrl: part.image };
+    } else {
+      return { type: "text", text: part.text };
+    }
+  });
+
   return {
     platform: "YouTube",
     timestamp: timestamp,
+    rawMessage: data.data.message,
     user,
     stream,
-    parts: data.data.parts,
-    rawMessage: data.data.message,
+    parts,
   };
 }
 
-function addMessageToChat(username, message, profileImage) {
+function addMessageToChatYoutube(username, message, profileImage) {
   const messageElement = document.createElement("div");
   messageElement.className = "message-container";
   messageElement.innerHTML = `
   <i class="fa-brands fa-youtube" style="color: #fe0606;"></i>
   <img class="profile-image" src="${profileImage}"/>
     <span class="user">${username}:</span>
-    <span class="message">${message}</span>
+    <span class="message">${replaceEmoji(message)}</span>
   `;
 
   chatContainer.appendChild(messageElement);
@@ -45,10 +55,10 @@ function addMessageToChat(username, message, profileImage) {
 client.on("YouTube.Message", (data) => {
   console.log("YouTube Message Received!", data);
   const extractedData = extractYouTubeMessageData(data);
-  console.log("Extracted Data:", extractedData);
-  addMessageToChat(
+  console.log("Extracted YouTube Data:", extractedData);
+  addMessageToChatYoutube(
     extractedData.user.name,
-    extractedData.rawMessage,
+    extractedData.parts,
     extractedData.user.profileImage
   );
 });

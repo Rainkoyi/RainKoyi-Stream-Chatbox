@@ -6,8 +6,11 @@
   padding: 10px;
   font-family: Arial, sans-serif;
 }
-.profile-image {
+.profile-image,
+.badge,
+.emoji {
   width: auto;
+  vertical-align: middle;
   height: 1em;
 }
 .message-container {
@@ -19,9 +22,4 @@
 .user {
   font-weight: bold;
   color: var(--user-color, #000);
-}
-.badge {
-  height: 18px;
-  vertical-align: middle;
-  margin-right: 3px;
 }

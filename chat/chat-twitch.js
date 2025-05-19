@@ -1,3 +1,5 @@
+import { replaceEmoji } from "./utility/replace-emoji.js";
+
 function extractTwitchMessageData(data) {
   // Extract user data
   const timestamp = new Date(data.timeStamp);
@@ -18,46 +20,36 @@ function extractTwitchMessageData(data) {
     rawMessage: data.data.text, // Original unparsed message
   };
 }
-function addMessageToChatTwitch(data) {
+function addMessageToChatTwitch(username, message, badges) {
   // Create message element
   const messageElement = document.createElement("div");
-  messageElement.className = "message";
+  messageElement.className = "message-container";
 
   // Add badges
   let badgesHTML = "";
-  if (data.data.user.badges) {
-    badgesHTML = data.data.user.badges
-      .map(
-        (badge) =>
-          `<img src="${badge.imageUrl}" class="badge" alt="${badge.name}" title="${badge.name}">`
-      )
-      .join("");
+  for (const badge of badges) {
+    badgesHTML += `<img class="badge" src="${badge.imageUrl}" title="${badge.name}" />`;
   }
-
-  // Set username color
-  const usernameStyle = data.data.user.color
-    ? `style="color: ${data.data.user.color}"`
-    : "";
 
   // Build message HTML
   messageElement.innerHTML = `
-  <div>
+  <i class="fa-brands fa-twitch" style="color: #9211e8;"></i>
   ${badgesHTML}
-  <span class="user" ${usernameStyle}>${
-    data.data.user.displayName || data.data.user.name
-  }</span>:
-  <span>${data.data.text}</span>
-  </div>
+  <span class="user">${username}:</span>
+  <span class="message">${replaceEmoji(message)}</span>
   `;
 
-  // Add to chat container
   chatContainer.appendChild(messageElement);
-
-  // Auto-scroll to bottom
   chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 
 client.on("Twitch.ChatMessage", (data) => {
   console.log("Twitch Chat Message Received!", data);
-  addMessageToChatTwitch(data);
+  const extractedData = extractTwitchMessageData(data);
+  console.log("Extracted Twitch Data:", extractedData);
+  addMessageToChatTwitch(
+    extractedData.user.name,
+    extractedData.parts,
+    extractedData.user.badges
+  );
 });
