@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stream Chat</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="chat.css" />
+  </head>
+  <body>
+    <h1>Twitch Chat</h1>
+    <div id="chat-container"></div>
+    <script src="https://unpkg.com/@streamerbot/client/dist/streamerbot-client.js"></script>
+    <script>
+      // Initialize the client once for all platforms
+      console.log("Initializing Streamer.bot Client");
+      window.client = new StreamerbotClient();
+      const chatContainer = document.getElementById("chat-container");
+    </script>
+
+    <script src="chat-youtube.js"></script>
+    <script src="chat-twitch.js"></script>
+  </body>
+</html>
