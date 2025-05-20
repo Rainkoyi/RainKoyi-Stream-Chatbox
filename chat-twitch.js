@@ -10,7 +10,7 @@ function extractTwitchMessageData(data) {
     id: data.data.user.login,
     name: data.data.user.name,
     badges: data.data.user.badges,
-    color: data.data.user.color,
+    color: color,
     subscribed: data.data.user.subscribed,
     url: "https://www.twitch.tv/" + data.data.user.login,
   };
