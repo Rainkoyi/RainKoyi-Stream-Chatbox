@@ -1,4 +1,5 @@
 import { replaceEmoji } from "./utility/replace-emoji.js";
+import { loadJson } from "./utility/load-json.js";
 /**
  * Extracts and organizes all relevant data from YouTube message
  */
@@ -63,9 +64,15 @@ client.on("YouTube.Message", (data) => {
   );
 });
 
-// Helper functions
-function escapeHtml(text) {
-  const div = document.createElement("div");
-  div.textContent = text;
-  return div.innerHTML;
+async function testChatYoutube() {
+  const messages = await loadJson("reference/youtube-messages.json");
+  for (const message of messages) {
+    const extractedData = extractYouTubeMessageData(message);
+    addMessageToChatYoutube(
+      extractedData.user.name,
+      extractedData.parts,
+      extractedData.user.profileImage
+    );
+  }
 }
+testChatYoutube();

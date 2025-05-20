@@ -1,4 +1,5 @@
 import { replaceEmoji } from "./utility/replace-emoji.js";
+import { loadJson } from "./utility/load-json.js";
 
 function extractTwitchMessageData(data) {
   // Extract user data
@@ -53,3 +54,16 @@ client.on("Twitch.ChatMessage", (data) => {
     extractedData.user.badges
   );
 });
+
+async function testChatTwitch() {
+  const messages = await loadJson("reference/twitch-messages.json");
+  for (const message of messages) {
+    const extractedData = extractTwitchMessageData(message);
+    addMessageToChatTwitch(
+      extractedData.user.name,
+      extractedData.parts,
+      extractedData.user.badges
+    );
+  }
+}
+testChatTwitch();
