@@ -72,7 +72,7 @@
 }
 
 .message-container:has(i.fa-twitch) .message-bubble {
-  background: rgba(145, 17, 232, 0.2);
+  /* background: rgba(145, 17, 232, 0.2); */
   border-bottom-right-radius: 4px;
 }
 

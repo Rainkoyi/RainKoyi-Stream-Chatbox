@@ -4,6 +4,8 @@ import { loadJson } from "./utility/load-json.js";
 function extractTwitchMessageData(data) {
   // Extract user data
   const timestamp = new Date(data.timeStamp);
+  const color = data.data.user.color ? data.data.user.color : "#9111F2";
+
   const user = {
     id: data.data.user.login,
     name: data.data.user.name,
@@ -34,16 +36,16 @@ function addMessageToChatTwitch(username, message, badges, color) {
 
   // Build message HTML with separate bubbles for username and message
   messageElement.innerHTML = `
-    <div class="username-bubble">
-      <i class="fa-brands fa-twitch" style="color: #9211e8;"></i>
-      ${badgesHTML}
-      <span class="user">${username}</span>
-    </div>
-    <div class="message-content">
-      <div class="message-bubble">
-        <span class="message">${replaceEmoji(message)}</span>
-      </div>
-    </div>
+  <div class="username-bubble">
+  <i class="fa-brands fa-twitch" style="color: #9211e8;"></i>
+  ${badgesHTML}
+  <span class="user" style="color: ${color}">${username}</span>
+  </div>
+  <div class="message-content">
+ <div class="message-bubble" style="background: ${color}"> 
+  <span class="message">${replaceEmoji(message)}</span>
+  </div>
+  </div>
   `;
 
   chatContainer.appendChild(messageElement);
@@ -69,7 +71,8 @@ async function testChatTwitch() {
     addMessageToChatTwitch(
       extractedData.user.name,
       extractedData.parts,
-      extractedData.user.badges
+      extractedData.user.badges,
+      extractedData.user.color
     );
   }
 }
