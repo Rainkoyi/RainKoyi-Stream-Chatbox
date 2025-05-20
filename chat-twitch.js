@@ -21,7 +21,7 @@ function extractTwitchMessageData(data) {
     rawMessage: data.data.text, // Original unparsed message
   };
 }
-function addMessageToChatTwitch(username, message, badges) {
+function addMessageToChatTwitch(username, message, badges, color) {
   // Create message element
   const messageElement = document.createElement("div");
   messageElement.className = "message-container";
@@ -36,8 +36,8 @@ function addMessageToChatTwitch(username, message, badges) {
   messageElement.innerHTML = `
     <div class="username-bubble">
       <i class="fa-brands fa-twitch" style="color: #9211e8;"></i>
-      <span class="user">${username}</span>
       ${badgesHTML}
+      <span class="user">${username}</span>
     </div>
     <div class="message-content">
       <div class="message-bubble">
@@ -57,7 +57,8 @@ client.on("Twitch.ChatMessage", (data) => {
   addMessageToChatTwitch(
     extractedData.user.name,
     extractedData.parts,
-    extractedData.user.badges
+    extractedData.user.badges,
+    extractedData.user.color
   );
 });
 
