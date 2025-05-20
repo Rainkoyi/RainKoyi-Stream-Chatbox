@@ -47,14 +47,18 @@ function addMessageToChatYoutube(username, message, profileImage) {
   const color = generateRandomColor();
 
   messageElement.innerHTML = `
-    <div class="username-bubble">
+    <div class="youtube-message-wrapper">
       <img class="profile-image" src="${profileImage}"/>
-      <i class="fa-brands fa-youtube" style="color: #fe0606;"></i>
-      <span class="user" style="color: ${color}">${username}</span>
-    </div>
-    <div class="message-content">
-      <div class="message-bubble" style="background: ${color}">
-        <span class="message">${replaceEmoji(message)}</span>
+      <div class="youtube-content">
+        <div class="username-bubble">
+          <i class="fa-brands fa-youtube" style="color: #fe0606;"></i>
+          <span class="user" style="color: ${color}">${username}</span>
+        </div>
+        <div class="message-content">
+          <div class="message-bubble" style="background: ${color}">
+            <span class="message">${replaceEmoji(message)}</span>
+          </div>
+        </div>
       </div>
     </div>
   `;

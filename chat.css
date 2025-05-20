@@ -28,6 +28,7 @@
   align-items: flex-start;
   width: 100%;
   margin-top: 4px;
+  min-width: 0; /* Prevent flex items from overflowing */
 }
 
 /* Username bubble */
@@ -37,7 +38,8 @@
   padding: 4px 8px;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.05);
-  max-width: fit-content;
+  width: fit-content;
+  white-space: nowrap;
 }
 
 /* Message bubble */
@@ -48,12 +50,43 @@
   border-radius: 12px;
   transition: background-color 0.2s ease;
   width: 100%;
+  min-width: 0; /* Prevent flex items from overflowing */
 }
 
-/* YouTube messages (received) - Left side */
+/* YouTube message wrapper */
+.youtube-message-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 8px 0;
+  max-width: 70%;
+  position: relative;
+  min-width: 0; /* Prevent flex items from overflowing */
+}
+
+/* YouTube content container */
+.youtube-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0; /* Prevent flex items from overflowing */
+}
+
+/* YouTube specific styling */
+.youtube-message-wrapper img.profile-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #fe0606;
+  flex-shrink: 0;
+  margin-top: 4px; /* Align with username bubble */
+}
+
+/* Update existing YouTube message container styles */
 .message-container:has(i.fa-youtube) {
   align-self: flex-start;
   margin-right: auto;
+  max-width: none; /* Remove max-width from container since it's now on wrapper */
 }
 
 .message-container:has(i.fa-youtube) .message-bubble {
@@ -61,8 +94,9 @@
   border-bottom-left-radius: 4px;
 }
 
-.message-container:has(i.fa-youtube) .message-bubble:hover {
-  background: rgba(255, 255, 255, 0.15);
+/* Remove old profile image margin */
+.message-container:has(i.fa-youtube) .username-bubble {
+  margin-left: 0;
 }
 
 /* Twitch messages (sent) - Right side */
@@ -94,15 +128,6 @@
   margin: 0 8px;
 }
 
-/* YouTube specific styling */
-.message-container:has(i.fa-youtube) img.profile-image {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  margin-right: 8px;
-  border: 2px solid #fe0606;
-}
-
 /* Twitch badges */
 .message-container:has(i.fa-twitch) .badge {
   height: 16px;
@@ -116,6 +141,7 @@
   word-wrap: break-word;
   line-height: 1.4;
   flex: 1;
+  min-width: 0; /* Prevent flex items from overflowing */
 }
 
 /* Custom scrollbar */
