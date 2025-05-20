@@ -32,12 +32,14 @@ function addMessageToChatTwitch(username, message, badges) {
     badgesHTML += `<img class="badge" src="${badge.imageUrl}" title="${badge.name}" />`;
   }
 
-  // Build message HTML
+  // Build message HTML with username on top
   messageElement.innerHTML = `
-  <i class="fa-brands fa-twitch" style="color: #9211e8;"></i>
-  ${badgesHTML}
-  <span class="user">${username}:</span>
-  <span class="message">${replaceEmoji(message)}</span>
+    <span class="user">${username}</span>
+    <div class="message-content">
+      <i class="fa-brands fa-twitch" style="color: #9211e8;"></i>
+      <span class="message">${replaceEmoji(message)}</span>
+      ${badgesHTML}
+    </div>
   `;
 
   chatContainer.appendChild(messageElement);
