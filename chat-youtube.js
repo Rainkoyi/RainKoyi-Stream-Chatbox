@@ -1,5 +1,7 @@
 import { replaceEmoji } from "./utility/replace-emoji.js";
 import { loadJson } from "./utility/load-json.js";
+import { generateRandomColor } from "./utility/generate-color.js";
+
 /**
  * Extracts and organizes all relevant data from YouTube message
  */
@@ -42,14 +44,16 @@ function extractYouTubeMessageData(data) {
 function addMessageToChatYoutube(username, message, profileImage) {
   const messageElement = document.createElement("div");
   messageElement.className = "message-container";
+  const color = generateRandomColor();
+
   messageElement.innerHTML = `
     <div class="username-bubble">
       <img class="profile-image" src="${profileImage}"/>
       <i class="fa-brands fa-youtube" style="color: #fe0606;"></i>
-      <span class="user">${username}</span>
+      <span class="user" style="color: ${color}">${username}</span>
     </div>
     <div class="message-content">
-      <div class="message-bubble">
+      <div class="message-bubble" style="background: ${color}">
         <span class="message">${replaceEmoji(message)}</span>
       </div>
     </div>
