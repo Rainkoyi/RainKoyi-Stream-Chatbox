@@ -43,11 +43,15 @@ function addMessageToChatYoutube(username, message, profileImage) {
   const messageElement = document.createElement("div");
   messageElement.className = "message-container";
   messageElement.innerHTML = `
-    <span class="user">${username}</span>
-    <div class="message-content">
+    <div class="username-bubble">
       <img class="profile-image" src="${profileImage}"/>
       <i class="fa-brands fa-youtube" style="color: #fe0606;"></i>
-      <span class="message">${replaceEmoji(message)}</span>
+      <span class="user">${username}</span>
+    </div>
+    <div class="message-content">
+      <div class="message-bubble">
+        <span class="message">${replaceEmoji(message)}</span>
+      </div>
     </div>
   `;
 
