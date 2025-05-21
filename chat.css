@@ -188,7 +188,7 @@
 
 /* Username bubble alignment */
 .message-container:has(i.fa-youtube) .username-bubble {
-  margin-left: 40px; /* Account for profile picture */
+  margin-left: 0; /* Remove the previous margin that was accounting for profile picture */
 }
 
 .message-container:has(i.fa-twitch) .username-bubble {
