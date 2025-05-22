@@ -50,12 +50,12 @@ function addMessageToChatYoutube(username, message, profileImage) {
     <div class="youtube-message-wrapper">
       <img class="profile-image" src="${profileImage}"/>
       <div class="youtube-content">
-        <div class="username-bubble">
+        <div class="username-bubble" style="border-color: ${color};">
           <i class="fa-brands fa-youtube" style="color: #fe0606;"></i>
           <span class="user">${username}</span>
         </div>
         <div class="message-content">
-          <div class="message-bubble" style="background: #FFFFFF">
+          <div class="message-bubble" style="border-color: ${color};">
             <span class="message">${replaceEmoji(message)}</span>
           </div>
         </div>
