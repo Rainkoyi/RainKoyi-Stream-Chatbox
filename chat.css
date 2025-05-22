@@ -68,7 +68,7 @@ body {
   align-items: flex-start;
   gap: 8px;
   margin: 8px 0;
-  max-width: 70%;
+  /* max-width: 70%; */
   position: relative;
   min-width: 0; /* Prevent flex items from overflowing */
 }
