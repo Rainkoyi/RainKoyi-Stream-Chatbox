@@ -142,7 +142,6 @@ body {
 
 /* Message text styling */
 .message-container .message {
-  color: #e0e0e0;
   word-wrap: break-word;
   line-height: 1.4;
   flex: 1;
