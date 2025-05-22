@@ -1,5 +1,5 @@
 body {
-  background: #000;
+  background: #b67272;
 }
 
 /* General chat container styling */
@@ -7,9 +7,9 @@ body {
   max-width: 800px;
   margin: 20px auto;
   padding: 20px;
-  /* background: rgba(0, 0, 0, 0.8); */
+  background: rgba(0, 0, 0, 0.1);
   border-radius: 12px;
-  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   height: 600px;
   overflow-y: auto;
   font-family: mononoki, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -41,9 +41,11 @@ body {
   align-items: center;
   padding: 4px 8px;
   border-radius: 12px;
-  background: rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0.95);
   width: fit-content;
   white-space: nowrap;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
 }
 
 /* Message bubble */
@@ -53,9 +55,11 @@ body {
   align-items: flex-start;
   padding: 8px 12px;
   border-radius: 12px;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
   width: 100%;
   min-width: 0; /* Prevent flex items from overflowing */
+  border: 2.5px solid transparent;
+  background: rgba(255, 255, 255, 0.95);
 }
 
 /* YouTube message wrapper */
@@ -95,7 +99,7 @@ body {
 }
 
 .message-container:has(i.fa-youtube) .message-bubble {
-  background: rgba(255, 255, 255);
+  background: rgba(255, 255, 255, 0.95);
   border-bottom-left-radius: 4px;
 }
 
@@ -111,7 +115,7 @@ body {
 }
 
 .message-container:has(i.fa-twitch) .message-bubble {
-  background: rgba(255, 255, 255);
+  background: rgba(255, 255, 255, 0.95);
   border-bottom-right-radius: 4px;
 }
 /* 
