@@ -134,7 +134,8 @@ body {
 /* Platform icons */
 .message-container i {
   font-size: 1.2em;
-  margin: 0 8px;
+  margin-right: 5px;
+  margin-left: 0px;
 }
 
 /* Twitch badges */
