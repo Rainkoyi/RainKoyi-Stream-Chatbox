@@ -93,8 +93,8 @@ body {
 .youtube-message-wrapper img.profile-image {
   width: 32px;
   height: 32px;
-  border-radius: 50%;
-  border: 2px solid #fe0606;
+  border-radius: 100%;
+  border: 3px solid #fb79b8;
   flex-shrink: 0;
   margin-top: 4px; /* Align with username bubble */
 }

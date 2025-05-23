@@ -6,3 +6,7 @@ export function generateRandomColor() {
   const lightness = 45 + Math.random() * 15; // 45-60% lightness
   return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 }
+
+export function getPinkColor() {
+  return "#fb79b8";
+}
