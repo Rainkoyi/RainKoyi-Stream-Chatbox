@@ -1,16 +1,25 @@
+body {
+  background: #ffffff;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
 /* General chat container styling */
 #chat-container {
-  max-width: 800px;
-  margin: 20px auto;
+  width: 100%;
+  height: 100%;
+  margin: 0;
   padding: 20px;
-  /* background: rgba(0, 0, 0, 0.8); */
-  border-radius: 12px;
-  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
-  height: 600px;
+  background: rgba(0, 0, 0, 0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: mononoki, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 /* Common message container styling */
@@ -37,20 +46,25 @@
   align-items: center;
   padding: 4px 8px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.95);
   width: fit-content;
   white-space: nowrap;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
 }
 
 /* Message bubble */
 .message-bubble {
+  color: #000;
   display: flex;
   align-items: flex-start;
   padding: 8px 12px;
   border-radius: 12px;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
   width: 100%;
   min-width: 0; /* Prevent flex items from overflowing */
+  border: 2.5px solid transparent;
+  background: rgba(255, 255, 255, 0.95);
 }
 
 /* YouTube message wrapper */
@@ -59,7 +73,7 @@
   align-items: flex-start;
   gap: 8px;
   margin: 8px 0;
-  max-width: 70%;
+  /* max-width: 70%; */
   position: relative;
   min-width: 0; /* Prevent flex items from overflowing */
 }
@@ -90,7 +104,7 @@
 }
 
 .message-container:has(i.fa-youtube) .message-bubble {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.95);
   border-bottom-left-radius: 4px;
 }
 
@@ -106,17 +120,17 @@
 }
 
 .message-container:has(i.fa-twitch) .message-bubble {
-  /* background: rgba(145, 17, 232, 0.2); */
+  background: rgba(255, 255, 255, 0.95);
   border-bottom-right-radius: 4px;
 }
-
+/* 
 .message-container:has(i.fa-twitch) .message-bubble:hover {
   background: rgba(145, 17, 232, 0.25);
-}
+} */
 
 /* Username styling */
 .message-container .user {
-  color: #fff;
+  color: #000;
   font-weight: 600;
   font-size: 0.85em;
   opacity: 0.9;
@@ -125,7 +139,8 @@
 /* Platform icons */
 .message-container i {
   font-size: 1.2em;
-  margin: 0 8px;
+  margin-right: 5px;
+  margin-left: 0px;
 }
 
 /* Twitch badges */
@@ -137,7 +152,6 @@
 
 /* Message text styling */
 .message-container .message {
-  color: #e0e0e0;
   word-wrap: break-word;
   line-height: 1.4;
   flex: 1;

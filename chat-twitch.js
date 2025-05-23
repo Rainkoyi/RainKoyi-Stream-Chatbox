@@ -36,13 +36,13 @@ function addMessageToChatTwitch(username, message, badges, color) {
 
   // Build message HTML with separate bubbles for username and message
   messageElement.innerHTML = `
-  <div class="username-bubble">
+  <div class="username-bubble" style="border-color: ${color};">
   <i class="fa-brands fa-twitch" style="color: #9211e8;"></i>
-  <span class="user" style="color: ${color}">${username}</span>
+  <span class="user">${username}</span>
   ${badgesHTML}
   </div>
   <div class="message-content">
- <div class="message-bubble" style="background: ${color}"> 
+ <div class="message-bubble" style="border-color: ${color};">
   <span class="message">${replaceEmoji(message)}</span>
   </div>
   </div>
