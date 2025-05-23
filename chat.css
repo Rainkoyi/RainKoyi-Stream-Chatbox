@@ -47,12 +47,12 @@ body {
   align-items: center;
   padding: 4px 8px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.95);
   width: fit-content;
   white-space: nowrap;
   border: 2px solid transparent;
   transition: all 0.2s ease;
   box-shadow: 0 2px 0 var(--message-shadow-color, #000000);
+  background: var(--username-bg-color, rgba(0, 0, 0, 0.1));
 }
 
 /* Message bubble */
@@ -107,7 +107,7 @@ body {
 }
 
 .message-container:has(i.fa-youtube) .message-bubble {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255);
   border-bottom-left-radius: 4px;
   box-shadow: -2px 2px 0 var(--message-shadow-color, #000000);
 }
@@ -125,7 +125,7 @@ body {
 }
 
 .message-container:has(i.fa-twitch) .message-bubble {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255);
   border-bottom-right-radius: 4px;
   box-shadow: 2px 2px 0 var(--message-shadow-color, #000000);
 }
@@ -136,10 +136,9 @@ body {
 
 /* Username styling */
 .message-container .user {
-  color: #000;
-  font-weight: 300;
+  color: #ffffff;
+  font-weight: 600;
   font-size: 0.9em;
-  opacity: 0.9;
   font-family: "Fredoka One", mononoki, "Segoe UI", Tahoma;
 }
 
@@ -148,6 +147,7 @@ body {
   font-size: 1.2em;
   margin-right: 5px;
   margin-left: 0px;
+  color: #ffffff !important;
 }
 
 /* Twitch badges */
