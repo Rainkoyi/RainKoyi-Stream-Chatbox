@@ -52,6 +52,7 @@ body {
   white-space: nowrap;
   border: 2px solid transparent;
   transition: all 0.2s ease;
+  box-shadow: 0 2px 0 var(--message-shadow-color, #000000);
 }
 
 /* Message bubble */
@@ -114,6 +115,7 @@ body {
 /* Remove old profile image margin */
 .message-container:has(i.fa-youtube) .username-bubble {
   margin-left: 0;
+  box-shadow: -2px 2px 0 var(--message-shadow-color, #000000);
 }
 
 /* Twitch messages (sent) - Right side */
@@ -212,4 +214,5 @@ body {
 
 .message-container:has(i.fa-twitch) .username-bubble {
   margin-left: auto;
+  box-shadow: 2px 2px 0 var(--message-shadow-color, #000000);
 }
