@@ -16,7 +16,8 @@ body {
   background: rgba(0, 0, 0, 0);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
-  font-family: "Fredoka One", mononoki, "Segoe UI", Tahoma;
+  font-family: mononoki, "Segoe UI", Tahoma;
+  font-weight: 600;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -131,10 +132,10 @@ body {
 /* Username styling */
 .message-container .user {
   color: #000;
-  font-weight: 600;
-  font-size: 0.85em;
+  font-weight: 300;
+  font-size: 0.9em;
   opacity: 0.9;
-  font-family: mononoki;
+  font-family: "Fredoka One", mononoki, "Segoe UI", Tahoma;
 }
 
 /* Platform icons */
