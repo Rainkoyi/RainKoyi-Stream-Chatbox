@@ -27,6 +27,7 @@ function addMessageToChatTwitch(username, message, badges, color) {
   // Create message element
   const messageElement = document.createElement("div");
   messageElement.className = "message-container";
+  messageElement.style.setProperty("--message-shadow-color", color);
 
   // Add badges
   let badgesHTML = "";

@@ -66,6 +66,7 @@ body {
   min-width: 0; /* Prevent flex items from overflowing */
   border: 2.5px solid transparent;
   background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 0 var(--message-shadow-color, #000000);
 }
 
 /* YouTube message wrapper */
@@ -107,6 +108,7 @@ body {
 .message-container:has(i.fa-youtube) .message-bubble {
   background: rgba(255, 255, 255, 0.95);
   border-bottom-left-radius: 4px;
+  box-shadow: -2px 2px 0 var(--message-shadow-color, #000000);
 }
 
 /* Remove old profile image margin */
@@ -123,6 +125,7 @@ body {
 .message-container:has(i.fa-twitch) .message-bubble {
   background: rgba(255, 255, 255, 0.95);
   border-bottom-right-radius: 4px;
+  box-shadow: 2px 2px 0 var(--message-shadow-color, #000000);
 }
 /* 
 .message-container:has(i.fa-twitch) .message-bubble:hover {
