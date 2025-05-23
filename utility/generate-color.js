@@ -49,7 +49,7 @@ export function getDarkerColor(color) {
   if (hsl) {
     // Make color darker and less saturated
     const [h, s, l] = hsl;
-    return `hsl(${h}, ${Math.max(30, s * 0.7)}%, ${Math.max(20, l * 0.8)}%)`;
+    return `hsl(${h}, ${Math.max(30, s * 0.8)}%, ${Math.max(20, l * 0.85)}%)`;
   }
 
   // Fallback to a dark gray if color parsing fails
@@ -57,5 +57,5 @@ export function getDarkerColor(color) {
 }
 
 export function getPinkColor() {
-  return "#fb79b8";
+  return "#ff69b4";
 }
