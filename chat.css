@@ -1,3 +1,8 @@
+/* Root variables for configuration */
+:root {
+  --star-decoration-size: 1.7em;
+}
+
 body {
   background: #ffffff;
   margin: 0;
@@ -43,6 +48,7 @@ body {
 
 /* Username bubble */
 .username-bubble {
+  position: relative;
   display: flex;
   align-items: center;
   padding: 4px 8px;
@@ -53,6 +59,28 @@ body {
   transition: all 0.2s ease;
   box-shadow: 0 8px 0 var(--message-color, #000000);
   background: var(--bg-color, rgba(0, 0, 0, 0.1));
+}
+
+/* Star decoration for YouTube (right side) */
+.message-container:has(i.fa-youtube) .username-bubble::after {
+  content: "★";
+  position: absolute;
+  right: -24px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--message-color, #000000);
+  font-size: var(--star-decoration-size);
+}
+
+/* Star decoration for Twitch (left side) */
+.message-container:has(i.fa-twitch) .username-bubble::before {
+  content: "★";
+  position: absolute;
+  left: -26px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--message-color, #000000);
+  font-size: var(--star-decoration-size);
 }
 
 /* Message bubble */
@@ -76,9 +104,9 @@ body {
   align-items: flex-start;
   gap: 8px;
   margin: 8px 0;
-  /* max-width: 70%; */
+  padding-right: 24px; /* Add space for the star */
   position: relative;
-  min-width: 0; /* Prevent flex items from overflowing */
+  min-width: 0;
 }
 
 /* YouTube content container */
@@ -122,6 +150,7 @@ body {
 .message-container:has(i.fa-twitch) {
   align-self: flex-end;
   margin-left: auto;
+  padding-left: 24px; /* Add space for the star */
 }
 
 .message-container:has(i.fa-twitch) .message-bubble {
