@@ -1,12 +1,12 @@
 import { replaceEmoji } from "./utility/replace-emoji.js";
 import { loadJson } from "./utility/load-json.js";
-import { getTwitchColor, getDarkerColor } from "./utility/generate-color.js";
+import { getTwitchColor, getPastelColor } from "./utility/generate-color.js";
 
 function extractTwitchMessageData(data) {
   // Extract user data
   const timestamp = new Date(data.timeStamp);
-  // const color = data.data.user.color ? data.data.user.color : getTwitchColor();
-  const color = getTwitchColor();
+  const color = data.data.user.color ? data.data.user.color : getTwitchColor();
+  // const color = getTwitchColor();
 
   const user = {
     id: data.data.user.login,
@@ -32,7 +32,7 @@ function addMessageToChatTwitch(username, message, badges, color) {
   messageElement.style.setProperty("--message-shadow-color", color);
   messageElement.style.setProperty(
     "--username-bg-color",
-    getDarkerColor(color)
+    getPastelColor(color)
   );
 
   // Add badges
