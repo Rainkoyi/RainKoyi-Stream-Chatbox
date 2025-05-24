@@ -1,8 +1,8 @@
 /* Root variables for configuration */
 :root {
-  --star-decoration-size: 1.7em;
+  --star-decoration-size: 1.2em;
   --raincloud-decoration-size: 2em;
-  --raincloud-decoration-color: #ffd43b;
+  --raincloud-decoration-color: #ffd026;
 }
 
 body {
@@ -65,24 +65,30 @@ body {
 
 /* Star decoration for YouTube (right side) */
 .message-container:has(i.fa-youtube) .username-bubble::after {
-  content: "★";
+  content: "\f005"; /* Font Awesome star icon code */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
   position: absolute;
-  right: -24px;
+  right: -26px;
   top: 50%;
   transform: translateY(-50%);
   color: var(--message-color, #000000);
   font-size: var(--star-decoration-size);
+  z-index: 2; /* Ensure star is above the line */
 }
 
 /* Star decoration for Twitch (left side) */
 .message-container:has(i.fa-twitch) .username-bubble::before {
-  content: "★";
+  content: "\f005"; /* Font Awesome star icon code */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
   position: absolute;
   left: -26px;
   top: 50%;
   transform: translateY(-50%);
   color: var(--message-color, #000000);
   font-size: var(--star-decoration-size);
+  z-index: 2; /* Ensure star is above the line */
 }
 
 /* Message bubble */
