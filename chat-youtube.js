@@ -45,11 +45,8 @@ function addMessageToChatYoutube(username, message, profileImage) {
   const messageElement = document.createElement("div");
   messageElement.className = "message-container";
   const color = getYoutubeColor();
-  messageElement.style.setProperty("--message-shadow-color", color);
-  messageElement.style.setProperty(
-    "--username-bg-color",
-    getPastelColor(color)
-  );
+  messageElement.style.setProperty("--message-color", color);
+  messageElement.style.setProperty("--bg-color", getPastelColor(color));
 
   messageElement.innerHTML = `
     <div class="youtube-message-wrapper">

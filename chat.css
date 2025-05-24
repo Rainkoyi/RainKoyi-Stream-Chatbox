@@ -51,8 +51,8 @@ body {
   white-space: nowrap;
   border: 2px solid transparent;
   transition: all 0.2s ease;
-  box-shadow: 0 8px 0 var(--message-shadow-color, #000000);
-  background: var(--username-bg-color, rgba(0, 0, 0, 0.1));
+  box-shadow: 0 8px 0 var(--message-color, #000000);
+  background: var(--bg-color, rgba(0, 0, 0, 0.1));
 }
 
 /* Message bubble */
@@ -67,7 +67,7 @@ body {
   min-width: 0; /* Prevent flex items from overflowing */
   border: 2px solid transparent;
   background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 8px 0 var(--message-shadow-color, #000000);
+  box-shadow: 0 8px 0 var(--message-color, #000000);
 }
 
 /* YouTube message wrapper */
@@ -109,13 +109,13 @@ body {
 .message-container:has(i.fa-youtube) .message-bubble {
   background: rgba(255, 255, 255);
   border-bottom-left-radius: 4px;
-  box-shadow: -3px 3px 0 var(--message-shadow-color, #000000);
+  box-shadow: -3px 3px 0 var(--message-color, #000000);
 }
 
 /* Remove old profile image margin */
 .message-container:has(i.fa-youtube) .username-bubble {
   margin-left: 0;
-  box-shadow: -3px 3px 0 var(--message-shadow-color, #000000);
+  box-shadow: -3px 3px 0 var(--message-color, #000000);
 }
 
 /* Twitch messages (sent) - Right side */
@@ -127,7 +127,7 @@ body {
 .message-container:has(i.fa-twitch) .message-bubble {
   background: rgba(255, 255, 255);
   border-bottom-right-radius: 4px;
-  box-shadow: 3px 3px 0 var(--message-shadow-color, #000000);
+  box-shadow: 3px 3px 0 var(--message-color, #000000);
 }
 /* 
 .message-container:has(i.fa-twitch) .message-bubble:hover {
@@ -136,7 +136,7 @@ body {
 
 /* Username styling */
 .message-container .user {
-  color: #ffffff;
+  color: var(--message-color, #000000);
   font-weight: 800;
   font-size: 0.9em;
   font-family: mononoki, "Segoe UI", Tahoma;
@@ -147,7 +147,7 @@ body {
   font-size: 1.2em;
   margin-right: 5px;
   margin-left: 0px;
-  color: #ffffff !important;
+  color: var(--message-color, #000000) !important;
 }
 
 /* Twitch badges */
@@ -214,5 +214,5 @@ body {
 
 .message-container:has(i.fa-twitch) .username-bubble {
   margin-left: auto;
-  box-shadow: 3px 3px 0 var(--message-shadow-color, #000000);
+  box-shadow: 3px 3px 0 var(--message-color, #000000);
 }

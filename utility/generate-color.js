@@ -100,7 +100,7 @@ export function getPastelColor(color) {
     hsl = [h * 360, s * 100, l * 100];
   } else if (color.startsWith("hsl")) {
     // Parse HSL string
-    const matches = color.match(/hsl\((\d+),\s*(\d+)%,\s*(\d+)%\)/);
+    const matches = color.match(/hsl\((\d{1,3}),\s*(\d{1,3})%,\s*(\d{1,3})%\)/);
     if (matches) {
       hsl = [parseInt(matches[1]), parseInt(matches[2]), parseInt(matches[3])];
     }
@@ -111,10 +111,7 @@ export function getPastelColor(color) {
     // 1. Reducing saturation to around 60-70%
     // 2. Increasing lightness to around 80-85%
     const [h, s, l] = hsl;
-    return `hsl(${h}, ${Math.min(70, Math.max(60, s * 0.7))}%, ${Math.min(
-      85,
-      Math.max(80, l * 1.2)
-    )}%)`;
+    return `hsl(${h}, ${Math.min(70, Math.max(60, s * 0.8))}%, ${95}%)`;
   }
 
   // Fallback to a light pastel pink if color parsing fails
