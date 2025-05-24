@@ -56,6 +56,10 @@ export function getDarkerColor(color) {
   return "hsl(0, 0%, 30%)";
 }
 
-export function getPinkColor() {
+export function getYoutubeColor() {
   return "#ff69b4";
+}
+
+export function getTwitchColor() {
+  return "#cc59f1";
 }

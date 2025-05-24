@@ -1,6 +1,6 @@
 import { replaceEmoji } from "./utility/replace-emoji.js";
 import { loadJson } from "./utility/load-json.js";
-import { getPinkColor, getDarkerColor } from "./utility/generate-color.js";
+import { getYoutubeColor, getDarkerColor } from "./utility/generate-color.js";
 
 /**
  * Extracts and organizes all relevant data from YouTube message
@@ -44,7 +44,7 @@ function extractYouTubeMessageData(data) {
 function addMessageToChatYoutube(username, message, profileImage) {
   const messageElement = document.createElement("div");
   messageElement.className = "message-container";
-  const color = getPinkColor();
+  const color = getYoutubeColor();
   messageElement.style.setProperty("--message-shadow-color", color);
   messageElement.style.setProperty(
     "--username-bg-color",

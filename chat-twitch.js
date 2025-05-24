@@ -1,11 +1,12 @@
 import { replaceEmoji } from "./utility/replace-emoji.js";
 import { loadJson } from "./utility/load-json.js";
-import { getDarkerColor } from "./utility/generate-color.js";
+import { getTwitchColor, getDarkerColor } from "./utility/generate-color.js";
 
 function extractTwitchMessageData(data) {
   // Extract user data
   const timestamp = new Date(data.timeStamp);
-  const color = data.data.user.color ? data.data.user.color : "#9111F2";
+  // const color = data.data.user.color ? data.data.user.color : getTwitchColor();
+  const color = getTwitchColor();
 
   const user = {
     id: data.data.user.login,
