@@ -1,10 +1,12 @@
 import { replaceEmoji } from "./utility/replace-emoji.js";
 import { loadJson } from "./utility/load-json.js";
+import { getTwitchColor, getPastelColor } from "./utility/generate-color.js";
 
 function extractTwitchMessageData(data) {
   // Extract user data
   const timestamp = new Date(data.timeStamp);
-  const color = data.data.user.color ? data.data.user.color : "#9111F2";
+  const color = data.data.user.color ? data.data.user.color : getTwitchColor();
+  // const color = getTwitchColor();
 
   const user = {
     id: data.data.user.login,
@@ -27,6 +29,8 @@ function addMessageToChatTwitch(username, message, badges, color) {
   // Create message element
   const messageElement = document.createElement("div");
   messageElement.className = "message-container";
+  messageElement.style.setProperty("--message-color", color);
+  messageElement.style.setProperty("--bg-color", getPastelColor(color));
 
   // Add badges
   let badgesHTML = "";
@@ -37,7 +41,7 @@ function addMessageToChatTwitch(username, message, badges, color) {
   // Build message HTML with separate bubbles for username and message
   messageElement.innerHTML = `
   <div class="username-bubble" style="border-color: ${color};">
-  <i class="fa-brands fa-twitch" style="color: #9211e8;"></i>
+  <i class="fa-brands fa-twitch"></i>
   <span class="user">${username}</span>
   ${badgesHTML}
   </div>
