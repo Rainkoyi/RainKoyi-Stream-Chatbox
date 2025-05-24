@@ -109,13 +109,13 @@ body {
 .message-container:has(i.fa-youtube) .message-bubble {
   background: rgba(255, 255, 255);
   border-bottom-left-radius: 4px;
-  box-shadow: -2px 2px 0 var(--message-shadow-color, #000000);
+  box-shadow: -3px 3px 0 var(--message-shadow-color, #000000);
 }
 
 /* Remove old profile image margin */
 .message-container:has(i.fa-youtube) .username-bubble {
   margin-left: 0;
-  box-shadow: -2px 2px 0 var(--message-shadow-color, #000000);
+  box-shadow: -3px 3px 0 var(--message-shadow-color, #000000);
 }
 
 /* Twitch messages (sent) - Right side */
@@ -127,7 +127,7 @@ body {
 .message-container:has(i.fa-twitch) .message-bubble {
   background: rgba(255, 255, 255);
   border-bottom-right-radius: 4px;
-  box-shadow: 2px 2px 0 var(--message-shadow-color, #000000);
+  box-shadow: 3px 3px 0 var(--message-shadow-color, #000000);
 }
 /* 
 .message-container:has(i.fa-twitch) .message-bubble:hover {
@@ -214,5 +214,5 @@ body {
 
 .message-container:has(i.fa-twitch) .username-bubble {
   margin-left: auto;
-  box-shadow: 2px 2px 0 var(--message-shadow-color, #000000);
+  box-shadow: 3px 3px 0 var(--message-shadow-color, #000000);
 }
