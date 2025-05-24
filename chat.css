@@ -1,8 +1,8 @@
 /* Root variables for configuration */
 :root {
   --star-decoration-size: 1.2em;
-  --raincloud-decoration-size: 2em;
-  --raincloud-decoration-color: #ffd026;
+  --raincloud-decoration-size: 2.5em;
+  --raincloud-decoration-color: #16a5fe;
 }
 
 body {
@@ -113,11 +113,11 @@ body {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
   position: absolute;
-  bottom: -16px;
-  right: -12px;
+  bottom: -24px;
+  right: -20px;
   font-size: var(--raincloud-decoration-size);
   color: var(--raincloud-decoration-color);
-  /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); */
+  animation: floatCloud 2s ease-in-out infinite;
   z-index: 2;
 }
 
@@ -127,11 +127,11 @@ body {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
   position: absolute;
-  bottom: -16px;
-  left: -20px;
+  bottom: -24px;
+  left: -30px;
   font-size: var(--raincloud-decoration-size);
   color: var(--raincloud-decoration-color);
-  /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); */
+  animation: floatCloud 2s ease-in-out infinite;
   z-index: 2;
 }
 
@@ -281,4 +281,15 @@ body {
 .message-container:has(i.fa-twitch) .username-bubble {
   margin-left: auto;
   box-shadow: 3px 3px 0 var(--message-color, #000000);
+}
+
+/* Animation for floating cloud */
+@keyframes floatCloud {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
