@@ -137,9 +137,9 @@ body {
 /* Username styling */
 .message-container .user {
   color: #ffffff;
-  font-weight: 600;
+  font-weight: 800;
   font-size: 0.9em;
-  font-family: "Fredoka One", mononoki, "Segoe UI", Tahoma;
+  font-family: mononoki, "Segoe UI", Tahoma;
 }
 
 /* Platform icons */
