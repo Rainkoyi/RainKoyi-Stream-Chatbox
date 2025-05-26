@@ -100,4 +100,16 @@ async function testChatYoutube() {
   console.log("Generated YouTube Message:", data);
   addMessageToChatYoutube(data.name, data.parts, data.profileImage);
 }
-testChatYoutube();
+async function simulateYoutubeChat() {
+  testChatYoutube();
+  while (true) {
+    const randomDelay = Math.floor(Math.random() * 4000) + 1000;
+    await new Promise((resolve) => setTimeout(resolve, randomDelay));
+    await testChatYoutube();
+  }
+}
+if (TESTING) {
+  (async () => {
+    await simulateYoutubeChat();
+  })();
+}

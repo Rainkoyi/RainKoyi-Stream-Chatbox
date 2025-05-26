@@ -90,4 +90,16 @@ async function testChatTwitch() {
   console.log("Generated Twitch Message:", data);
   addMessageToChatTwitch(data.name, data.parts, data.badges, data.color);
 }
-testChatTwitch();
+async function simulateTwitchChat() {
+  testChatTwitch();
+  while (true) {
+    const randomDelay = Math.floor(Math.random() * 4000) + 1000;
+    await new Promise((resolve) => setTimeout(resolve, randomDelay));
+    await testChatTwitch();
+  }
+}
+if (TESTING) {
+  (async () => {
+    await simulateTwitchChat();
+  })();
+}
