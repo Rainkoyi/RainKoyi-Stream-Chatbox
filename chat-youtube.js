@@ -1,6 +1,10 @@
 import { replaceEmoji } from "./utility/replace-emoji.js";
 import { loadJson } from "./utility/load-json.js";
 import { getYoutubeColor, getPastelColor } from "./utility/generate-color.js";
+import {
+  generateYoutubeMessage,
+  getRandomInt,
+} from "./demo/message-generator.js";
 
 /**
  * Extracts and organizes all relevant data from YouTube message
@@ -80,15 +84,20 @@ client.on("YouTube.Message", (data) => {
   );
 });
 
+// async function testChatYoutube() {
+//   const messages = await loadJson("reference/youtube-messages.json");
+//   for (const message of messages) {
+//     const extractedData = extractYouTubeMessageData(message);
+//     addMessageToChatYoutube(
+//       extractedData.user.name,
+//       extractedData.parts,
+//       extractedData.user.profileImage
+//     );
+//   }
+// }
 async function testChatYoutube() {
-  const messages = await loadJson("reference/youtube-messages.json");
-  for (const message of messages) {
-    const extractedData = extractYouTubeMessageData(message);
-    addMessageToChatYoutube(
-      extractedData.user.name,
-      extractedData.parts,
-      extractedData.user.profileImage
-    );
-  }
+  const data = await generateYoutubeMessage(10);
+  console.log("Generated YouTube Message:", data);
+  addMessageToChatYoutube(data.name, data.parts, data.profileImage);
 }
 testChatYoutube();

@@ -1,6 +1,10 @@
 import { replaceEmoji } from "./utility/replace-emoji.js";
 import { loadJson } from "./utility/load-json.js";
 import { getTwitchColor, getPastelColor } from "./utility/generate-color.js";
+import {
+  generateTwitchMessage,
+  getRandomInt,
+} from "./demo/message-generator.js";
 
 function extractTwitchMessageData(data) {
   // Extract user data
@@ -68,16 +72,22 @@ client.on("Twitch.ChatMessage", (data) => {
   );
 });
 
+// async function testChatTwitch() {
+//   const messages = await loadJson("reference/twitch-messages.json");
+//   for (const message of messages) {
+//     const extractedData = extractTwitchMessageData(message);
+//     addMessageToChatTwitch(
+//       extractedData.user.name,
+//       extractedData.parts,
+//       extractedData.user.badges,
+//       extractedData.user.color
+//     );
+//   }
+// }
+
 async function testChatTwitch() {
-  const messages = await loadJson("reference/twitch-messages.json");
-  for (const message of messages) {
-    const extractedData = extractTwitchMessageData(message);
-    addMessageToChatTwitch(
-      extractedData.user.name,
-      extractedData.parts,
-      extractedData.user.badges,
-      extractedData.user.color
-    );
-  }
+  const data = await generateTwitchMessage(10);
+  console.log("Generated Twitch Message:", data);
+  addMessageToChatTwitch(data.name, data.parts, data.badges, data.color);
 }
 testChatTwitch();
