@@ -75,6 +75,7 @@ function generateRandomMessage(wordCount) {
 export async function generateYoutubeMessage(count) {
   const parts = [];
   const emojis = await loadJson("./demo/youtube-emojis.json");
+
   let randomBoolean;
   for (let i = 0; i < count; i++) {
     randomBoolean = Math.random() < 0.8;
@@ -97,6 +98,7 @@ export async function generateTwitchMessage(count) {
   // Generate a random number of parts for the message
   const parts = [];
   const emojis = await loadJson("./demo/twitch-emojis.json");
+
   for (let i = 0; i < count; i++) {
     randomBoolean = Math.random() < 0.8;
     if (randomBoolean) {
@@ -107,6 +109,7 @@ export async function generateTwitchMessage(count) {
   }
   // generate a random number of badges
   const badges = [];
+
   const badgesList = await loadJson("./demo/twitch-badges.json");
   for (let i = 0; i < getRandomInt(0, 3); i++) {
     badges.push(badgesList[Math.floor(Math.random() * badgesList.length)]);

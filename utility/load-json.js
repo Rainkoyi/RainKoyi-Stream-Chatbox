@@ -7,7 +7,7 @@ export function loadJson(url) {
       return response.json();
     })
     .then((data) => {
-      console.log("Data loaded successfully:", data);
+      // console.log("Data loaded successfully:", data);
       return data;
     });
 }
