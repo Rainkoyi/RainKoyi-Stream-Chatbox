@@ -38,13 +38,28 @@ case $choice in
             fi
         fi
         
+        echo "Stopping any running containers..."
         docker-compose down 2>/dev/null || true
         
+        sleep 2
+        if lsof -Pi :80 -sTCP:LISTEN -t >/dev/null 2>&1; then
+            echo "⚠️  Port 80 is still in use. Please stop the service using it:"
+            lsof -Pi :80 -sTCP:LISTEN
+            echo ""
+            echo "Common commands to free port 80:"
+            echo "  sudo systemctl stop nginx"
+            echo "  sudo systemctl stop apache2"
+            echo "  sudo pkill -f nginx"
+            read -p "Press Enter after freeing port 80..."
+        fi
+        
+        echo "Getting Let's Encrypt certificate for $domain..."
         sudo certbot certonly --standalone \
             -d $domain \
             --email $email \
             --agree-tos \
-            --non-interactive
+            --non-interactive \
+            --force-renewal
         
         sudo cp /etc/letsencrypt/live/$domain/fullchain.pem ssl/cert.pem
         sudo cp /etc/letsencrypt/live/$domain/privkey.pem ssl/key.pem
