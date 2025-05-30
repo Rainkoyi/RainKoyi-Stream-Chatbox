@@ -5,6 +5,7 @@ import {
   generateYoutubeMessage,
   getRandomInt,
 } from "./demo/message-generator.js";
+import { isBlacklisted } from "./utility/blacklist.js";
 
 /**
  * Extracts and organizes all relevant data from YouTube message
@@ -77,11 +78,13 @@ client.on("YouTube.Message", (data) => {
   console.log("YouTube Message Received!", data);
   const extractedData = extractYouTubeMessageData(data);
   console.log("Extracted YouTube Data:", extractedData);
-  addMessageToChatYoutube(
-    extractedData.user.name,
-    extractedData.parts,
-    extractedData.user.profileImage
-  );
+  if (!isBlacklisted(extractedData.user.id)) {
+    addMessageToChatYoutube(
+      extractedData.user.name,
+      extractedData.parts,
+      extractedData.user.profileImage
+    );
+  }
 });
 
 // async function testChatYoutube() {

@@ -5,6 +5,7 @@ import {
   generateTwitchMessage,
   getRandomInt,
 } from "./demo/message-generator.js";
+import { isBlacklisted } from "./utility/blacklist.js";
 
 function extractTwitchMessageData(data) {
   // Extract user data
@@ -64,12 +65,15 @@ client.on("Twitch.ChatMessage", (data) => {
   console.log("Twitch Chat Message Received!", data);
   const extractedData = extractTwitchMessageData(data);
   console.log("Extracted Twitch Data:", extractedData);
-  addMessageToChatTwitch(
-    extractedData.user.name,
-    extractedData.parts,
-    extractedData.user.badges,
-    extractedData.user.color
-  );
+
+  if (!isBlacklisted(extractedData.user.id)) {
+    addMessageToChatTwitch(
+      extractedData.user.name,
+      extractedData.parts,
+      extractedData.user.badges,
+      extractedData.user.color
+    );
+  }
 });
 
 // async function testChatTwitch() {
